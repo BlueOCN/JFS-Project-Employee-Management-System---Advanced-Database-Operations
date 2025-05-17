@@ -56,3 +56,18 @@ Create Views to Simplify Data Access:
 - How views were used to simplify data access and why you chose to create them.
 - Any challenges you encountered during the project and how you resolved them.
 
+---
+
+#### Employee Management System Overview
+
+The Employee Management System was designed with a structured methodology for data integrity, performance, and usability. The database schema includes primary tables such as Employees, Departments, and Projects, all defined with care using primary and foreign key constraints to establish distinct relationships among the entities. UNIQUE for email addresses and FOREIGN KEY relationships constraint provide consistency and prevent duplicate or orphaned records. Implementing such designs makes a scalable and robust database system.
+
+Data recovery from tables relies heavily on joins, which make retrieval of related records simple. INNER JOIN functionality proved particularly useful in joining employees with their respective departments, making valuable observations regarding organizational hierarchies. Similarly, by joining Projects with Employees, it was possible to retrieve project details along with the managers who are assigned to them, presenting a clear picture of the leadership assignments. Refining by way of WHERE clauses also reduced the outcomes, like retrieving employees above the age of thirty belonging to specific departments like MI6. Such searches allow retrieving relevant information efficiently and accurately.
+
+To facilitate easy access of data and enhancing query performance, views were introduced into the system. The EmployeeDetails view brings together common-used columns along with immediate access to employee IDs, names, and their respective departments without subjecting them to repeated joins. The ActiveProjects view omits projects with budgets greater than $1,000 for fast retrieval of relevant financial entries. Views play a significant role in easing readability and computation, making it easier to manage voluminous data and often queried data.
+
+During development, there were several issues that popped up, particularly in foreign key constraints. Insertion of records into tables based on non-existent parent records resulted in integrity errors that required alteration of insertion order. Ensuring managers already existed within the Employees table before assigning them to Projects was one of the valuable lessons regarding referential integrity. In addition, data type inconsistencies, such as the use of integers instead of decimals to hold project budgets, affected accuracy in monetary calculations. These were addressed through checking dependencies, applying appropriate constraints, and enhancing data types to represent best practice.
+
+This systematic approach results in a scalable, efficient Employee Management System, designed to have seamless data handling and retrieval. By taking advantage of the utilization of joins to specify relations, views to push down access complexity, and clearly defined constraints to preserve integrity, the system provides a foundation for keeping track of employee records, departmental structures, and project allocations efficiently.
+
+---
